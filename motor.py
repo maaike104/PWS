@@ -1,11 +1,12 @@
 TONES = ('C', 'D', 'E', 'F', 'G', 'A', 'B', 'c', 'd', 'e', 'f')
 
 class Motor(object):
-    def __init__(self, tone):
+    def __init__(self, tone, bpm):
         self.tone = tone
+        self.bpm = bpm
         
     def __str__(self):
-        return 'Motor {0}'.format(self.tone)
+        return 'Motor {0} {1}'.format(self.tone, self.bpm)
         
     def __repr__(self):
         return self.__str__()
@@ -20,6 +21,6 @@ class Tone(object):
 
 motors = list()
 for tone in TONES:
-    motors.append(Motor(tone))
+    motors.append(Motor(tone, 80))
 
 print(motors)
