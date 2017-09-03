@@ -3,7 +3,7 @@ import time
 # importeer van de andere bestanden de classes zodat we deze kunnen gebruiken
 from motor import Motor
 from bladmuziek import Bladmuziek
-
+from piano import Piano
 # constant (dus hoofdletters)
 MINUUT = 60
 
@@ -19,14 +19,16 @@ class Machine(object):
 
         # FIXME Dit is niet zo netjes: er kan nu geen ander YAML bestand gebruikt worden!
         self.bladmuziek = Bladmuziek('pachelbel.yml')
+        # self.bladmuziek = Bladmuziek('vaderjacob.yml')
+        self.piano = Piano('tonen')
 
         self.tonen = self.bladmuziek.tonen()
         self.bpm = self.bladmuziek.bpm()
         self.naam = self.bladmuziek.naam()
         self.maten = self.bladmuziek.maten()
-        
+
         self.maak_motors()
-    
+
     def maak_motors(self):
         """
         Maak een motor voor elke toon en stop die in een dictionary met
@@ -34,20 +36,23 @@ class Machine(object):
         """
         for toon in self.tonen:
             self.motors[toon] = Motor(toon)
-    
+
     def afspelen(self):
         """
         Speel elke maat af. Elke maat heeft een vast aantal tellen, en per tel kunnen er
         meeerdere tonen zijn die moeten worden afgespeeld.
         """
-        for naam, maat in self.maten.items():
-            for tel, tonen in maat.items():
+        for naam, maat in sorted(self.maten.iteritems()):
+            print(naam)
+            for tel, tonen in maat.iteritems():
                 # MINUUT / bpm betekent dat je het interval tussen twee tellen krijgt. Je wacht met
                 # sleep dus totdat je weer een tel hebt.
-                time.sleep(MINUUT / self.bpm)
+                time.sleep(MINUUT / float(self.bpm))
                 # Speel de tonen af die deze tel langskomen met de juiste motor.
-                for toon in tonen:
-                    self.motors[toon].afspelen()
+                if tonen:
+                    for toon in tonen:
+                        self.motors[toon].afspelen()
+                        self.piano.afspelen_op_achtergrond(toon)
 
 
 if __name__ == '__main__':
