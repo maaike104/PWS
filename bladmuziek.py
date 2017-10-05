@@ -43,3 +43,10 @@ class Bladmuziek(object):
         Pluk maten uit de dictionary muziek_info.
         """
         return self.muziek_info['maten']
+    
+    def bestand(self):
+        return self.muziek_info['bestand']
+
+    
+    
+    
