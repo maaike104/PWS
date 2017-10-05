@@ -44,8 +44,7 @@ class Bladmuziek(object):
         """
         return self.muziek_info['maten']
     
-    def bestand(self):
-        return self.muziek_info['bestand']
+ 
 
     
     
