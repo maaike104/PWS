@@ -4,22 +4,22 @@ import time
 from motor import Motor
 from bladmuziek import Bladmuziek
 from piano import Piano
+from bestand import Bestand
+
 # constant (dus hoofdletters)
 MINUUT = 60
 
 
 # machine is de 'baas' die tegen de motoren praat
 class Machine(object):
-    def __init__(self):
+    def __init__(self, bestandsnaam):
         """
         Stel het Machine object in met de motoren en de informatie die uit de Bladmuziek
         class geplukt wordt.
         """
         self.motors = dict()
 
-        # FIXME Dit is niet zo netjes: er kan nu geen ander YAML bestand gebruikt worden!
-        self.bladmuziek = Bladmuziek('pachelbel.yml')
-        # self.bladmuziek = Bladmuziek('vaderjacob.yml')
+        self.bladmuziek = Bladmuziek(bestandsnaam)
         self.piano = Piano('tonen')
 
         self.tonen = self.bladmuziek.tonen()
@@ -53,9 +53,3 @@ class Machine(object):
                     for toon in tonen:
                         self.motors[toon].afspelen()
                         self.piano.afspelen_op_achtergrond(toon)
-
-
-if __name__ == '__main__':
-    machine = Machine()
-    # print(machine.motors)
-    machine.afspelen()
