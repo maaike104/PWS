@@ -15,6 +15,7 @@ class Bladmuziek(object):
         """
         Lees het bestand en vertaal YAML naar Python. Dit wordt opgeslagen in muziek_info,
         een dictionary.
+        TESTESTESTEST
         """
         with open(self.bestandsnaam) as bestand:
             tekst = bestand.read()
