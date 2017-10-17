@@ -3,6 +3,6 @@ class Motor(object):
         self.toon = toon
 
     def afspelen(self):
-        # TODO Zodra we met echte motoren gaan werken moeten we hier zorgen dat onze machine
-        # TODO geluid gaat maken.
+        # Omdat we nu nog geen echte motors gebruiken wegens geldgebrek is dit nu nutteloos, in plaats daarvan hebben we nu het bestandje
+        # piano.py waar in plaats van onze knikkerbaan de computer het geluid maakt.
         print(self.toon)
