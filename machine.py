@@ -15,18 +15,15 @@ class Machine(object):
     def __init__(self, bestandsnaam):
         """
         Stel het Machine object in met de motoren en de informatie die uit de Bladmuziek
-        class geplukt wordt.
+        class gehaald wordt.
         """
         self.motors = dict()
-
         self.bladmuziek = Bladmuziek(bestandsnaam)
         self.piano = Piano('tonen')
-
         self.tonen = self.bladmuziek.tonen()
         self.bpm = self.bladmuziek.bpm()
         self.naam = self.bladmuziek.naam()
         self.maten = self.bladmuziek.maten()
-
         self.maak_motors()
 
     def maak_motors(self):
