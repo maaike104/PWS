@@ -1,4 +1,4 @@
-# importeer de module time zodat we 'm kunnen gebruiken in de code
+# importeer de module time zodat we deze kunnen gebruiken in de code
 import time
 # importeer van de andere bestanden de classes zodat we deze kunnen gebruiken
 from motor import Motor
