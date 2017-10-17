@@ -22,24 +22,24 @@ class Bladmuziek(object):
 
     def bpm(self):
         """
-        Pluk bpm uit de dictionary muziek_info.
+        Haal bpm uit de dictionary muziek_info.
         """
         return self.muziek_info['algemeen']['bpm']
 
     def tonen(self):
         """
-        Pluk de tonen uit de dictionary muziek_info.
+        Haal de tonen uit de dictionary muziek_info.
         """
         return self.muziek_info['algemeen']['tonen']
 
     def naam(self):
         """
-        Pluk naam uit de dictionary muziek_info.
+        Haal naam uit de dictionary muziek_info.
         """
         return self.muziek_info['algemeen']['naam']
 
     def maten(self):
         """
-        Pluk maten uit de dictionary muziek_info.
+        Haal maten uit de dictionary muziek_info.
         """
         return self.muziek_info['maten']
